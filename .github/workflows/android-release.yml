@@ -44,14 +44,23 @@ jobs:
         run: flutter build appbundle
         
     
-      - name: BundleTool Action
-        uses: mukeshsolanki/bundletool-action@v1.0.1
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+      - name: Convert aab to apk
+        id: convert_aab
+        uses: mukeshsolanki/bundletool-action@v1.0.0
         with:
-          name: androidBuild
-          path: build/app/outputs/bundle/release/app-release.aab
-          
+         aabFile: app/build/outputs/bundle/release/app-release.aab
+         base64Keystore: ${{ secrets.BASE64_KEY }}
+         keystorePassword: ${{ secrets.PASSWORD }}
+         keystoreAlias: ${{ secrets.ALIAS }}
+         keyPassword: ${{ secrets.PASSWORD }}
+         bundletoolVersion: '1.9.0'
+
+      - uses: actions/upload-artifact@v3
+        with:
+         name: release-apk
+         path: ${{ steps.convert_aab.outputs.apkPath }}
+
+
       - name: Download a Build Artifact
         uses: actions/download-artifact@v2.1.1
