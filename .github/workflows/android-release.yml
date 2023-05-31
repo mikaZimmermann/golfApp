@@ -1,6 +1,4 @@
 name: Android Release
-name: Flutter action
-
 
 # 1
 on:
