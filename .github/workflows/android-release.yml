@@ -42,7 +42,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Start release build
         run: flutter build appbundle
-      #13
+        
+    
+      - name: BundleTool Action
+        uses: mukeshsolanki/bundletool-action@v1.0.1
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
