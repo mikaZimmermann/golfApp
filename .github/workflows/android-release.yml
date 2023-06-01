@@ -44,18 +44,16 @@ jobs:
         run: flutter build appbundle
         
     
-
-      - name: Sign AAB file
-        uses: kylehennig/bundletool-action@v1
+      - name: Convert aab to apk
+        id: convert_aab
+        uses: mukeshsolanki/bundletool-action@v1.0.0
         with:
-         args: sign-bundle
-        env:
-         KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
-         KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-         KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-         KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-         BUNDLE_FILE: path/to/your/app.aab
-
+         aabFile: app/build/outputs/bundle/release/app-release.aab
+         base64Keystore: ${{ secrets.KEYSTORE_FILE }}
+         keystorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+         keystoreAlias: ${{ secrets.KEY_ALIAS }}
+         keyPassword: ${{ secrets.KEY_PASSWORD }}
+         bundletoolVersion: '1.9.0'
 
       - uses: actions/upload-artifact@v3
         with:
