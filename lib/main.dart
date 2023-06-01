@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Golf Training'),
+      home: const MyHomePage(title: 'Golf Training Build with github actions'),
     );
   }
 }
