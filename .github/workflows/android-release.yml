@@ -50,10 +50,10 @@ jobs:
         uses: mukeshsolanki/bundletool-action@v1.0.0
         with:
          aabFile: app/build/outputs/bundle/release/app-release.aab
-         base64Keystore: TWFueSBoYW5kcyBtYWtlIGxpZ2h0IHdvcmsu
-         keystorePassword: TWFU
-         keystoreAlias: test
-         keyPassword: test
+         base64Keystore: ${{ secrets.BASE64_KEY }}
+         keystorePassword: ${{ secrets.PASSWORD }}
+         keystoreAlias: ${{ secrets.ALIAS }}
+         keyPassword: ${{ secrets.PASSWORD }}
          bundletoolVersion: '1.9.0'
 
       - uses: actions/upload-artifact@v3
