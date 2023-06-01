@@ -57,7 +57,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-         name: release-apk
+         name: ${{github.run_id}}release-apk
          path: ${{ steps.convert_aab.outputs.apkPath }}
 
 
