@@ -43,25 +43,29 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       
       ),
-      body: Column(
+      body: 
+      Center(
+        child: Column(
       
-        children:[ 
-          ElevatedButton(
-          child: const Text('Open Trainingplans'),
-          onPressed: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const TrainingPlanOverview()),
-            
+        children:<Widget>[ 
+         Expanded( 
+          child: 
+            ElevatedButton(
+            child: const Text('Open Trainingplans'),
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const TrainingPlanOverview()),
+              
             );
           }
-        ),
-        
-        ElevatedButton(child: const Text ("Open Settings"),onPressed:(){})
-        
+        )),
+        Expanded(
+          child: ElevatedButton(child: const Text ("Open Settings"),onPressed:(){})
+        )
         ]
     
-      ),
+      )),
     );
   } //build
 } //class
