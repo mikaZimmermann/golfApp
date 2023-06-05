@@ -33,11 +33,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<String> trainingPlans = ['P1', 'P2', 'P3'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 200, 3, 158),
+        backgroundColor: Color.fromARGB(255, 0, 174, 134),
         title: Text(widget.title),
       ),
       body: Center(
@@ -49,7 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const TrainingPlanOverview()),
+                        builder: (context) => TrainingPlanOverview(
+                              trainingPlans: trainingPlans,
+                            )),
                   );
                 })),
         Expanded(
