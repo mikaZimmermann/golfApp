@@ -35,37 +35,27 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
-
         backgroundColor: Color.fromARGB(255, 200, 3, 158),
         title: Text(widget.title),
-      
       ),
-      body: 
-      Center(
-        child: Column(
-      
-        children:<Widget>[ 
-         Expanded( 
-          child: 
-            ElevatedButton(
-            child: const Text('Open Trainingplans'),
-            onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const TrainingPlanOverview()),
-              
-            );
-          }
-        )),
+      body: Center(
+          child: Column(children: <Widget>[
         Expanded(
-          child: ElevatedButton(child: const Text ("Open Settings"),onPressed:(){})
-        )
-        ]
-    
-      )),
+            child: ElevatedButton(
+                child: const Text('Open Trainingplans'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TrainingPlanOverview()),
+                  );
+                })),
+        Expanded(
+            child: ElevatedButton(
+                child: const Text("Open Settings"), onPressed: () {}))
+      ])),
     );
   } //build
 } //class
