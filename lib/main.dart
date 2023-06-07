@@ -33,7 +33,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<String> trainingPlans = ['P1', 'P2', 'P3'];
+  final List<String> trainingPlans = ['Beginner', 'Intermediate', 'Beginner2'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

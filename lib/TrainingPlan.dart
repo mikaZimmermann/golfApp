@@ -7,7 +7,7 @@ class TrainingPlan extends StatefulWidget {
   final String name;
   //final List<Shottype> elements;
   // bool hit_or_miss = false;
-  List<String> exercices = ['Exercise 1', 'Exercise 2', 'Exercise 3'];
+  final List<String> exercices = ['Exercise 1', 'Exercise 2', 'Exercise 3'];
   @override
   State<TrainingPlan> createState() => _TrainingPlanState();
 }
@@ -26,7 +26,7 @@ class _TrainingPlanState extends State<TrainingPlan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('This is for ${widget.name}')),
+      appBar: AppBar(title: Text('${widget.name} Training Plans')),
       body: ListView.builder(
         itemCount: widget.exercices.length,
         itemBuilder: (BuildContext context, int index) {
