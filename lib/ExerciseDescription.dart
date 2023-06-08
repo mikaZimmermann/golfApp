@@ -1,20 +1,35 @@
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 
 class ExerciseDescription {
-  ExerciseDescription(this.name, this.illustration, this.content,
-      this.repetitions, this.passingThreshold);
+  ExerciseDescription(
+      this.name,
+      this.contentEN,
+      this.contentDE,
+      this.repetitions,
+      this.passingThreshold,
+      this.distanceToFlag,
+      this.goalArea);
 
   final String name;
-  final Image illustration;
-  final List<String> content;
+  //final Image illustration;
+  final String contentEN;
+  final String contentDE;
   final int repetitions;
-  final String passingThreshold;
+  final int passingThreshold;
+  final int distanceToFlag;
+  final int goalArea;
 
-  String displayDescription(String language) {
+  String getName() => name;
+  String getContentEN() => contentEN;
+  String getContentDE() => contentDE;
+  int getReps() => repetitions;
+  int getPassingThreshold() => passingThreshold;
+
+  /*String displayDescription(String language) {
     if (language == 'DE') {
       return content[0];
     } else {
       return content[1];
     }
-  }
+  }*/
 }

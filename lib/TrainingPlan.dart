@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:version1/Exercise.dart';
+//import 'package:version1/Exercise.dart';
+import 'DisplayExercise.dart';
 
 import 'FocusPoint.dart';
 
@@ -7,10 +9,12 @@ class TrainingPlan extends StatefulWidget {
   TrainingPlan(
       {super.key,
       required this.name,
-      required this.focusPoint /*, required this.elements*/});
+      required this.focusPoint,
+      required this.exercises});
   final String name;
   //final List<Shottype> elements;
   final List<FocusPoint> focusPoint;
+  final List<Exercise> exercises;
   //final List<String> exercices = ['Exercise 1', 'Exercise 2', 'Exercise 3'];
   @override
   State<TrainingPlan> createState() => _TrainingPlanState();
@@ -42,8 +46,9 @@ class _TrainingPlanState extends State<TrainingPlan> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          Exercise(id: 2, focusPoints: widget.focusPoint)),
+                      builder: (context) => DisplayExercise(
+                          focusPoints: widget.focusPoint,
+                          exercises: widget.exercises)),
                 );
                 print(
                     'Button pressed for ${widget.focusPoint[index].getName()}');

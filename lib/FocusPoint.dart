@@ -2,16 +2,16 @@
 //import 'package:version1/Shottype.dart';
 
 class FocusPoint {
-  FocusPoint(
+  const FocusPoint(
       {required this.name,
       required this.difficulty,
       required this.contentEN,
       required this.contentDE});
-  String name;
+  final String name;
   //Image illustration;
-  String difficulty;
-  String contentEN;
-  String contentDE;
+  final String difficulty;
+  final String contentEN;
+  final String contentDE;
 
   String getName() => name;
   String getDifficulty() => difficulty;
