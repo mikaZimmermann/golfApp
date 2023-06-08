@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+//import 'package:version1/Shottype.dart';
+import 'FocusPoint.dart';
 import 'TrainingPlanOverview.dart';
 
 void main() {
@@ -33,12 +34,66 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<String> trainingPlans = ['Beginner', 'Intermediate', 'Beginner2'];
+  final List<FocusPoint> beginnerFP = [
+    FocusPoint(
+        name: 'Putting',
+        difficulty: 'Beginner',
+        contentEN: 'English description of Beginner 1 FP',
+        contentDE: 'German description of Beginner 1 FP'),
+    FocusPoint(
+        name: 'Short Game',
+        difficulty: 'Beginner',
+        contentEN: 'English description of Beginner 2 FP',
+        contentDE: 'German description of Beginner 3 FP'),
+    FocusPoint(
+        name: 'Long Game',
+        difficulty: 'Beginner',
+        contentEN: 'English description of Beginner 3 FP',
+        contentDE: 'German description of Beginner 3 FP')
+  ];
+
+  final List<FocusPoint> interFP = [
+    FocusPoint(
+        name: 'Intermediate 1',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 1 FP',
+        contentDE: 'German description of Intermediate 1 FP'),
+    FocusPoint(
+        name: 'Intermediate 2',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 2 FP',
+        contentDE: 'German description of Intermediate 3 FP'),
+    FocusPoint(
+        name: 'Intermediate 3',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 3 FP',
+        contentDE: 'German description of Intermediate 3 FP')
+  ];
+
+  final List<FocusPoint> advFP = [
+    FocusPoint(
+        name: 'Advanced 1',
+        difficulty: 'Advanced',
+        contentEN: 'English description of Advanced 1 FP',
+        contentDE: 'German description of Advanced 1 FP'),
+    FocusPoint(
+        name: 'Advanced 2',
+        difficulty: 'Advanced',
+        contentEN: 'English description of Advanced 2 FP',
+        contentDE: 'German description of Advanced 3 FP'),
+    FocusPoint(
+        name: 'Advanced 3',
+        difficulty: 'Advanced',
+        contentEN: 'English description of Advanced 3 FP',
+        contentDE: 'German description of Advanced 3 FP')
+  ];
+
+  final List<String> trainingPlans = ['Beginner', 'Intermediate', 'Advanced'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 0, 174, 134),
+        backgroundColor: Color.fromARGB(255, 75, 41, 138),
         title: Text(widget.title),
       ),
       body: Center(
@@ -51,8 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => TrainingPlanOverview(
-                              trainingPlans: trainingPlans,
-                            )),
+                            trainingPlans: trainingPlans,
+                            beginnerfocusPoints: beginnerFP,
+                            interfocusPoints: interFP,
+                            advancedfocusPoints: advFP)),
                   );
                 })),
         Expanded(
