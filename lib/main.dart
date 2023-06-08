@@ -19,10 +19,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Golf Training',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 15, 78, 2)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Golf Training Build with github actions'),
+      home: const MyHomePage(title: 'Golf Training'),
     );
   }
 }
@@ -48,13 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 75, 41, 138),
+        backgroundColor: Color.fromARGB(255, 101, 149, 203),
         title: Text(widget.title),
       ),
       body: Center(
           child: Column(children: <Widget>[
         Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: ElevatedButton(
                 child: const Text('Open Trainingplans'),
                 onPressed: () {
@@ -70,7 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             )),
                   );
                 })),
-        Expanded(
+        Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: ElevatedButton(
                 child: const Text("Open Settings"), onPressed: () {}))
       ])),

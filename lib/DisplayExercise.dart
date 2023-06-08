@@ -13,48 +13,80 @@ class DisplayExercise extends StatefulWidget {
   final List<Exercise> exercises;
   //final List<ExecutionRecord> records;
   //final List<Shottype> shottypes;
-
-  //final List<String> exerciceS = ['Exercise 1', 'Exercise 2', 'Exercise 3'];
   @override
   State<DisplayExercise> createState() => _DExerciseState();
 }
 
 class _DExerciseState extends State<DisplayExercise> {
-  /*
- ____________________________________________________________________________________
- This class needs to destroy its parent object after creating a
- new instance with the lastest execution added to List<ExecutionRecord>
- records of parent records
- 
-  */
-
-  late List<bool>
-      exerciseToggleValues; // late means it is used when it is required or initialized when it is required
+  late List<bool> exerciseToggleValues;
+  bool showToggles = false;
+  bool trainingPlanStarted =
+      false; // Flag to track if training plan has started
 
   @override
   void initState() {
     super.initState();
-    exerciseToggleValues = List<bool>.filled(widget.exercises.length,
-        false); // initialize dynamically with false when the state is created
+    exerciseToggleValues = List<bool>.filled(widget.exercises.length, false);
+  }
+
+  void startTrainingPlan() {
+    setState(() {
+      showToggles = true;
+      trainingPlanStarted = true;
+    });
+  }
+
+  void stopTrainingPlan() {
+    setState(() {
+      showToggles = false;
+      trainingPlanStarted = false;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Exercises')),
+      appBar: AppBar(
+        title: Text('Exercises'),
+        actions: [
+          if (!trainingPlanStarted) // Show "Start Exercise Plan" button if plan not started
+            ElevatedButton(
+              onPressed: startTrainingPlan,
+              child: Text(
+                'Start',
+                style: TextStyle(color: Colors.white),
+              ),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 23, 82, 25)),
+            ),
+          if (trainingPlanStarted) // Show "Stop" button if plan started
+            ElevatedButton(
+              onPressed: stopTrainingPlan,
+              child: Text(
+                'Stop',
+                style: TextStyle(color: Colors.white),
+              ),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 121, 19, 12)),
+            ),
+        ],
+      ),
       body: ListView.builder(
         itemCount: widget.exercises.length,
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
             title: Text(widget.exercises[index].getDesc().name),
-            trailing: Switch(
-              value: exerciseToggleValues[index],
-              onChanged: (bool newValue) {
-                setState(() {
-                  exerciseToggleValues[index] = newValue;
-                });
-              },
-            ),
+            trailing: showToggles &&
+                    trainingPlanStarted // Conditionally show toggles based on flags
+                ? Switch(
+                    value: exerciseToggleValues[index],
+                    onChanged: (bool newValue) {
+                      setState(() {
+                        exerciseToggleValues[index] = newValue;
+                      });
+                    },
+                  )
+                : null,
           );
         },
       ),
