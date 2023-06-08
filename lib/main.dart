@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-
+//import 'package:version1/Shottype.dart';
+import 'FocusPoint.dart';
+import 'Importer.dart';
 import 'TrainingPlanOverview.dart';
+import 'Exercise.dart';
+import 'ExerciseDescription.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +19,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Golf Training',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 15, 78, 2)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Golf Training Build with github actions'),
+      home: const MyHomePage(title: 'Golf Training'),
     );
   }
 }
@@ -33,39 +38,46 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //I add some lists of focus points here, we can import as many as we like from a file later on
+
   @override
   Widget build(BuildContext context) {
+    // have to initialize the exercise list here because it cannot access the focuspoint lists in the scope above
+    final Importer importer = new Importer();
     
+    
+
     return Scaffold(
       appBar: AppBar(
-
-        backgroundColor: Color.fromARGB(255, 200, 3, 158),
+        backgroundColor: Color.fromARGB(255, 101, 149, 203),
         title: Text(widget.title),
-      
       ),
-      body: 
-      Center(
-        child: Column(
-      
-        children:<Widget>[ 
-         Expanded( 
-          child: 
-            ElevatedButton(
-            child: const Text('Open Trainingplans'),
-            onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const TrainingPlanOverview()),
-              
-            );
-          }
-        )),
-        Expanded(
-          child: ElevatedButton(child: const Text ("Open Settings"),onPressed:(){})
-        )
-        ]
-    
-      )),
+      body: Center(
+          child: Column(children: <Widget>[
+        Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: ElevatedButton(
+                child: const Text('Open Trainingplans'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TrainingPlanOverview(
+                              trainingPlans: importer.trainingPlans,
+                              beginnerfocusPoints: importer.beginnerFP,
+                              interfocusPoints: importer.interFP,
+                              advancedfocusPoints: importer.advFP,
+                              realExercise: importer.realExercises,
+                            )),
+                  );
+                })),
+        Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: ElevatedButton(
+                child: const Text("Open Settings"), onPressed: () {}))
+      ])),
     );
   } //build
 } //class

@@ -1,31 +1,24 @@
-import 'package:flutter/material.dart';
-import 'package:version1/Shottype.dart';
+//import 'package:flutter/material.dart';
+//import 'package:version1/Shottype.dart';
 
-import 'ExecutionRecord.dart';
+//import 'ExecutionRecord.dart';
+import 'FocusPoint.dart';
+import 'ExerciseDescription.dart';
 
-class Exercise extends StatefulWidget {
-  const Exercise({super.key, required this.id, required this.focusPoints, required this.records, required this.shottypes});
+class Exercise {
+  Exercise({
+    required this.id,
+    required this.desc,
+    required this.focusPoints,
+    /*required this.records*/
+  });
   final int id;
-  final List<String> focusPoints;
-  final List<ExecutionRecord> records;
-  final List<Shottype> shottypes;
-  @override
-  State<Exercise> createState() => _ExerciseState();
-}
+  final ExerciseDescription desc;
+  final List<FocusPoint> focusPoints;
+  //final List<ExecutionRecord> records;
+  //final List<Shottype> shottypes;
 
-
-
-class _ExerciseState extends State<Exercise> {
- /*
- ____________________________________________________________________________________
- This class needs to destroy its parent object after creating a
- new instance with the lastest execution added to List<ExecutionRecord>
- records of parent records
- 
-  */ 
-  
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
+  int getID() => id;
+  ExerciseDescription getDesc() => desc;
+  List<FocusPoint> getfocusPoints() => focusPoints;
 }
