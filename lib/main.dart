@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 //import 'package:version1/Shottype.dart';
-import 'FocusPoint.dart';
+//import 'FocusPoint.dart';
 import 'Importer.dart';
 import 'TrainingPlanOverview.dart';
-import 'Exercise.dart';
-import 'ExerciseDescription.dart';
+//import 'Exercise.dart';
+//import 'ExerciseDescription.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Golf Training',
       theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 15, 78, 2)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 15, 78, 2)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Golf Training'),
@@ -43,13 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     // have to initialize the exercise list here because it cannot access the focuspoint lists in the scope above
-    final Importer importer = new Importer();
-    
-    
+    final Importer importer = Importer();
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 101, 149, 203),
+        backgroundColor: const Color.fromARGB(255, 101, 149, 203),
         title: Text(widget.title),
       ),
       body: Center(

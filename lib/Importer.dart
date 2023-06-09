@@ -1,6 +1,7 @@
 import 'Exercise.dart';
 import 'ExerciseDescription.dart';
 import 'FocusPoint.dart';
+import 'ExecutionRecord.dart';
 
 class Importer {
   final List<FocusPoint> _beginnerFP = [
@@ -32,9 +33,59 @@ class Importer {
         name: 'Intermediate 2',
         difficulty: 'Intermediate',
         contentEN: 'English description of Intermediate 2 FP',
-        contentDE: 'German description of Intermediate 3 FP'),
+        contentDE: 'German description of Intermediate 2 FP'),
     const FocusPoint(
         name: 'Intermediate 3',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 2 FP',
+        contentDE: 'German description of Intermediate 3 FP'),
+    const FocusPoint(
+        name: 'Intermediate 4',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 2 FP',
+        contentDE: 'German description of Intermediate 3 FP'),
+    const FocusPoint(
+        name: 'Intermediate 5',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 2 FP',
+        contentDE: 'German description of Intermediate 3 FP'),
+    const FocusPoint(
+        name: 'Intermediate 6',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 2 FP',
+        contentDE: 'German description of Intermediate 3 FP'),
+    const FocusPoint(
+        name: 'Intermediate 7',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 2 FP',
+        contentDE: 'German description of Intermediate 3 FP'),
+    const FocusPoint(
+        name: 'Intermediate 8',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 2 FP',
+        contentDE: 'German description of Intermediate 3 FP'),
+    const FocusPoint(
+        name: 'Intermediate 9',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 2 FP',
+        contentDE: 'German description of Intermediate 3 FP'),
+    const FocusPoint(
+        name: 'Intermediate 10',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 2 FP',
+        contentDE: 'German description of Intermediate 3 FP'),
+    const FocusPoint(
+        name: 'Intermediate 11',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 2 FP',
+        contentDE: 'German description of Intermediate 3 FP'),
+    const FocusPoint(
+        name: 'Intermediate 12',
+        difficulty: 'Intermediate',
+        contentEN: 'English description of Intermediate 2 FP',
+        contentDE: 'German description of Intermediate 3 FP'),
+    const FocusPoint(
+        name: 'Intermediate 13',
         difficulty: 'Intermediate',
         contentEN: 'English description of Intermediate 3 FP',
         contentDE: 'German description of Intermediate 3 FP')
@@ -66,19 +117,45 @@ class Importer {
   // we can add more trainingplans or import from a file
 
   late final List<Exercise> _realExercises = [
-      Exercise(
-          id: 1,
-          desc: ExerciseDescription('Short swing', 'en', 'de', 10, 7, 20, 10),
-          focusPoints: _beginnerFP),
-      Exercise(
-          id: 2,
-          desc: ExerciseDescription('Short put', 'en', 'de', 10, 6, 20, 10),
-          focusPoints:_beginnerFP),
-      Exercise(
-          id: 3,
-          desc: ExerciseDescription('Bigman ting', 'en', 'de', 10, 8, 25, 5),
-          focusPoints: _interFP)
-    ];
+    Exercise(
+        id: 1,
+        desc: ExerciseDescription('Short swing', 'en', 'de', 10, 7, 20, 10),
+        focusPoints: _beginnerFP,
+        records: [ExecutionRecord(exerciseID: 1)]),
+    Exercise(
+        id: 2,
+        desc: ExerciseDescription('Short put', 'en', 'de', 10, 6, 20, 10),
+        focusPoints: _beginnerFP,
+        records: [ExecutionRecord(exerciseID: 2)]),
+    Exercise(
+        id: 3,
+        desc: ExerciseDescription('Bigman ting', 'en', 'de', 10, 8, 25, 5),
+        focusPoints: _interFP,
+        records: [ExecutionRecord(exerciseID: 3)]),
+    Exercise(
+        id: 4,
+        desc: ExerciseDescription('Heavy ting', 'en', 'de', 10, 8, 25, 5),
+        focusPoints: [
+          const FocusPoint(
+              name: 'Advanced 1',
+              difficulty: 'Advanced',
+              contentEN: 'English description of Advanced 1 FP',
+              contentDE: 'German description of Advanced 1 FP'),
+          const FocusPoint(
+              name: 'Long Game',
+              difficulty: 'Beginner',
+              contentEN: 'English description of Beginner 3 FP',
+              contentDE: 'German description of Beginner 3 FP'),
+          const FocusPoint(
+              name: 'Intermediate 13',
+              difficulty: 'Intermediate',
+              contentEN: 'English description of Intermediate 3 FP',
+              contentDE: 'German description of Intermediate 3 FP')
+        ],
+        records: [
+          ExecutionRecord(exerciseID: 4)
+        ])
+  ];
 
   List<String> get trainingPlans => _trainingPlans;
   List<FocusPoint> get beginnerFP => _beginnerFP;
