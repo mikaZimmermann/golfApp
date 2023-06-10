@@ -124,7 +124,7 @@ class Importer {
         records: [ExecutionRecord(exerciseID: 1)]),
     Exercise(
         id: 2,
-        desc: ExerciseDescription('Short put', 'en', 'de', 10, 6, 20, 10),
+        desc: ExerciseDescription('Short put', 'en', 'de', 15, 6, 20, 10),
         focusPoints: _beginnerFP,
         records: [ExecutionRecord(exerciseID: 2)]),
     Exercise(
@@ -134,7 +134,7 @@ class Importer {
         records: [ExecutionRecord(exerciseID: 3)]),
     Exercise(
         id: 4,
-        desc: ExerciseDescription('Heavy ting', 'en', 'de', 10, 8, 25, 5),
+        desc: ExerciseDescription('Heavy ting', 'en', 'de', 20, 8, 25, 5),
         focusPoints: [
           const FocusPoint(
               name: 'Advanced 1',

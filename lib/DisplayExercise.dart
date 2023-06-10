@@ -46,8 +46,8 @@ class _DExerciseState extends State<DisplayExercise> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.greenAccent),
-                child: const Text('Start')),
+                    backgroundColor: const Color.fromARGB(255, 14, 160, 58)),
+                child: const Icon(Icons.play_arrow_outlined)),
           );
         },
       ),

@@ -37,37 +37,49 @@ class _ExerciseState extends State<ExecuteExercise> {
       appBar: AppBar(
         title: Text('Executing ${widget.exercise.desc.name}'),
       ),
-      body: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            'Reps: $repcount',
-            style: const TextStyle(fontSize: 18),
-          ),
-          const SizedBox(width: 8),
-          Text(
-            'Hits: $shotsmade',
-            style: const TextStyle(fontSize: 18),
-          ),
-          const SizedBox(width: 8),
-          ElevatedButton(
-            onPressed: repcount > 0 ? incrementCount : null,
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-            child: const Text(
-              'Hit',
-              style: TextStyle(color: Colors.white),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '$shotsmade Hits and',
+                  style: const TextStyle(fontSize: 24),
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  '$repcount Reps lefts',
+                  style: const TextStyle(fontSize: 24),
+                ),
+              ],
             ),
-          ),
-          const SizedBox(width: 8),
-          ElevatedButton(
-            onPressed: repcount > 0 ? decrementCount : null,
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-            child: const Text(
-              'Miss',
-              style: TextStyle(color: Colors.white),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(width: 8),
+                ElevatedButton(
+                  onPressed: repcount > 0 ? incrementCount : null,
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  child: const Icon(Icons.check),
+                ),
+                const SizedBox(width: 8),
+                ElevatedButton(
+                  onPressed: repcount > 0 ? decrementCount : null,
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  child: const Icon(Icons.clear_rounded),
+                ),
+              ],
             ),
-          ),
-        ],
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('End Exercise'),
+            ),
+          ],
+        ),
       ),
     );
   }

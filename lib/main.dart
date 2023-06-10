@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 //import 'FocusPoint.dart';
 import 'Importer.dart';
 import 'TrainingPlanOverview.dart';
+import 'Themes.dart';
 //import 'Exercise.dart';
 //import 'ExerciseDescription.dart';
 
@@ -18,11 +19,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Golf Training',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 15, 78, 2)),
-        useMaterial3: true,
-      ),
+      theme: Themes.lightTheme,
+      darkTheme: Themes.darkTheme,
       home: const MyHomePage(title: 'Golf Training'),
     );
   }
@@ -47,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 101, 149, 203),
         title: Text(widget.title),
       ),
       body: Center(
