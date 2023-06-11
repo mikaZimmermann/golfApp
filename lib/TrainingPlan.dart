@@ -39,7 +39,8 @@ class _TrainingPlanState extends State<TrainingPlan> {
         itemCount: widget.focusPoint.length,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: ElevatedButton(
               onPressed: () {
                 // Perform actions when the button is pressed
@@ -50,8 +51,6 @@ class _TrainingPlanState extends State<TrainingPlan> {
                           focusPoints: widget.focusPoint,
                           exercises: widget.exercises)),
                 );
-                print(
-                    'Button pressed for ${widget.focusPoint[index].getName()}');
               },
               child: Text(widget.focusPoint[index].getName()),
             ),
