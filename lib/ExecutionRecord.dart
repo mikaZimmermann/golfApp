@@ -3,12 +3,14 @@ class ExecutionRecord {
   int exerciseID;
   late int repetitions = 0;
   late int shotsMade = 0;
-  late DateTime dateTime;
+  late DateTime dateTime = DateTime.now();
+  late String grade = '';
 
   int getExerciseID() => exerciseID;
   int getRepititions() => repetitions;
   int getShotsMade() => shotsMade;
   DateTime getDateTime() => dateTime;
+  String getGrade() => grade;
 
   void setRepitions(int reps) {
     repetitions = reps;
@@ -20,5 +22,9 @@ class ExecutionRecord {
 
   void setDateTime(DateTime dt) {
     dateTime = dt;
+  }
+
+  void setGrade(String grd) {
+    grade = grd;
   }
 }

@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:version1/Exercise.dart';
+import 'ExecutionRecord.dart';
 
 class DisplayExerciseProgress extends StatefulWidget {
-  const DisplayExerciseProgress({super.key, required this.exercise});
+  const DisplayExerciseProgress({Key? key, required this.exercise})
+      : super(key: key);
   final Exercise exercise;
+
   @override
   State<DisplayExerciseProgress> createState() => _DExerciseState();
 }
 
 class _DExerciseState extends State<DisplayExerciseProgress> {
+  List<ExecutionRecord> records = [];
   @override
   void initState() {
     super.initState();
+    records = widget.exercise.records;
+    if (records.isNotEmpty && records[0].repetitions == 0) {
+      records.removeAt(0);
+    }
   }
 
   @override
@@ -55,14 +63,31 @@ class _DExerciseState extends State<DisplayExerciseProgress> {
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: widget.exercise.records.length,
+            itemCount: records.length,
             itemBuilder: (BuildContext context, int index) {
-              final record = widget.exercise.records[index];
+              final record = records[index];
+              Color cardColor;
+
+              if (record.getGrade() == 'Pass') {
+                cardColor = const Color.fromARGB(255, 47, 117, 50);
+              } else if (record.getGrade() == 'Fail') {
+                cardColor = const Color.fromARGB(255, 124, 24, 17);
+              } else {
+                cardColor = Colors.transparent;
+              }
               return Card(
+                color: cardColor,
                 child: ListTile(
-                  title: Text('Date: ${record.dateTime}'),
+                  title: Text(
+                    'Status: ${record.grade}   ${record.shotsMade}/${record.repetitions}',
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ),
                   subtitle: Text(
-                    'Shots Made: ${record.shotsMade} / Total Repetitions: ${record.repetitions}',
+                    'Date: ${record.dateTime}',
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
               );

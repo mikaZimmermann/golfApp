@@ -48,6 +48,7 @@ class _ExerciseState extends State<ExecuteExercise> {
         progress.setRepitions(repcount);
         progress.setShotsMade(shotsmade);
         progress.setDateTime(DateTime.now());
+        progress.setGrade('Pass');
         widget.exercise.records.add(progress);
       } else {
         message1 = 'Exercise Failed';
@@ -57,6 +58,7 @@ class _ExerciseState extends State<ExecuteExercise> {
         progress.setRepitions(repcount);
         progress.setShotsMade(shotsmade);
         progress.setDateTime(DateTime.now());
+        progress.setGrade('Fail');
         widget.exercise.records.add(progress);
       }
     });

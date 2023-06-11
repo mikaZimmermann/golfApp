@@ -32,26 +32,28 @@ class _DExerciseState extends State<DisplayExercise> {
             title: Row(
               children: [
                 Text(widget.exercises[index].getDesc().name),
-                const SizedBox(width: 8),
-                PopupMenuButton(
+                //const SizedBox(width: 8),
+                PopupMenuButton<int>(
                   icon: const Icon(Icons.more_vert),
                   itemBuilder: (BuildContext context) {
-                    return [
-                      PopupMenuItem(
-                        child: const Text('Preview Exercise'),
-                        onTap: () {
-                          // display exercise description and the record of the user's performance on that exercise
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DisplayExerciseProgress(
-                                  exercise: widget.exercises[index]),
-                            ),
-                          );
-                          print('Button pressed');
-                        },
+                    return <PopupMenuEntry<int>>[
+                      const PopupMenuItem<int>(
+                        value: 0,
+                        child: Text('Preview Exercise'),
                       ),
                     ];
+                  },
+                  onSelected: (value) {
+                    if (value == 0) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DisplayExerciseProgress(
+                            exercise: widget.exercises[index],
+                          ),
+                        ),
+                      );
+                    }
                   },
                 ),
               ],
@@ -67,7 +69,7 @@ class _DExerciseState extends State<DisplayExercise> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: Color.fromARGB(255, 54, 151, 57),
                 elevation: 0,
               ),
               child: const Icon(Icons.play_arrow_outlined),
