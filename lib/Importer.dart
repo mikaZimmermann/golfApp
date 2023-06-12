@@ -2,8 +2,11 @@ import 'Exercise.dart';
 import 'ExerciseDescription.dart';
 import 'FocusPoint.dart';
 import 'ExecutionRecord.dart';
+//import 'User.dart';
 
 class Importer {
+  //static List<User> _users = [];
+
   final List<FocusPoint> _beginnerFP = [
     const FocusPoint(
         name: 'Putting',
@@ -157,9 +160,14 @@ class Importer {
         ])
   ];
 
+  //List<User> get users => _users;
   List<String> get trainingPlans => _trainingPlans;
   List<FocusPoint> get beginnerFP => _beginnerFP;
   List<FocusPoint> get interFP => _interFP;
   List<FocusPoint> get advFP => _advFP;
   List<Exercise> get realExercises => _realExercises;
+
+  //static void addUser(User u) {
+  //_users.add(u);
+  //}
 }

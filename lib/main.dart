@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-//import 'package:version1/Shottype.dart';
-//import 'FocusPoint.dart';
 import 'Importer.dart';
 import 'TrainingPlanOverview.dart';
 import 'Themes.dart';
-//import 'Exercise.dart';
-//import 'ExerciseDescription.dart';
+import 'UserPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -71,7 +68,13 @@ class _MyHomePageState extends State<MyHomePage> {
             padding:
                 const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: ElevatedButton(
-                child: const Text("Open Settings"), onPressed: () {}))
+                child: const Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const UserPage()),
+                  );
+                }))
       ])),
     );
   } //build

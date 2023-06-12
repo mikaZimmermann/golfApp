@@ -69,7 +69,7 @@ class _DExerciseState extends State<DisplayExercise> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 54, 151, 57),
+                backgroundColor: const Color.fromARGB(255, 54, 151, 57),
                 elevation: 0,
               ),
               child: const Icon(Icons.play_arrow_outlined),

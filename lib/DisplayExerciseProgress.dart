@@ -52,12 +52,22 @@ class _DExerciseState extends State<DisplayExerciseProgress> {
           ),
           const SizedBox(height: 8),
           Text(
-            'Passing Repetitions: ${widget.exercise.desc.passingThreshold}',
+            'Passing Threshold: ${widget.exercise.desc.passingThreshold}',
+            style: const TextStyle(fontSize: 16),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Distance from Flag: ${widget.exercise.desc.distanceToFlag} meters',
+            style: const TextStyle(fontSize: 16),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Goal Area: ${widget.exercise.desc.goalArea} meters',
             style: const TextStyle(fontSize: 16),
           ),
           const SizedBox(height: 16),
           const Text(
-            'Records:',
+            'Your Progress:',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           ListView.builder(
