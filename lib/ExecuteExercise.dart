@@ -44,21 +44,23 @@ class _ExerciseState extends State<ExecuteExercise> {
         message1 = 'Exercise Passed';
         message2 = 'Great Work';
         ExecutionRecord progress =
-            ExecutionRecord(exerciseID: widget.exercise.id);
-        progress.setRepitions(repcount);
-        progress.setShotsMade(shotsmade);
-        progress.setDateTime(DateTime.now());
-        progress.setGrade('Pass');
+            ExecutionRecord(ExerciseID: widget.exercise.id);
+        
+        progress.repetitions = repcount;
+
+        progress.shotsMade = shotsmade;
+        progress.dateTime= (DateTime.now());
+        progress.grade = 'Pass';
         widget.exercise.records.add(progress);
       } else {
         message1 = 'Exercise Failed';
         message2 = 'Try Again';
         ExecutionRecord progress =
-            ExecutionRecord(exerciseID: widget.exercise.id);
-        progress.setRepitions(repcount);
-        progress.setShotsMade(shotsmade);
-        progress.setDateTime(DateTime.now());
-        progress.setGrade('Fail');
+            ExecutionRecord(ExerciseID: widget.exercise.id);
+        progress.repetitions = repcount;
+        progress.shotsMade = shotsmade;
+        progress.dateTime = (DateTime.now());
+        progress.grade = 'Fail';
         widget.exercise.records.add(progress);
       }
     });

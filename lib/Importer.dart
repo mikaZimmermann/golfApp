@@ -121,24 +121,24 @@ class Importer {
 
   late final List<Exercise> _realExercises = [
     Exercise(
-        id: 1,
-        desc: ExerciseDescription('Short swing', 'en', 'de', 10, 7, 20, 10),
-        focusPoints: _beginnerFP,
-        records: [ExecutionRecord(exerciseID: 1)]),
+        ID: 1,
+        Desc: ExerciseDescription('Short swing', 'en', 'de', 10, 7, 20, 10),
+        FocusPoints: _beginnerFP,
+        Records: [ExecutionRecord(ExerciseID: 1)]),
     Exercise(
-        id: 2,
-        desc: ExerciseDescription('Short put', 'en', 'de', 15, 6, 20, 10),
-        focusPoints: _beginnerFP,
-        records: [ExecutionRecord(exerciseID: 2)]),
+        ID: 2,
+        Desc: ExerciseDescription('Short put', 'en', 'de', 15, 6, 20, 10),
+        FocusPoints: _beginnerFP,
+        Records: [ExecutionRecord(ExerciseID: 2)]),
     Exercise(
-        id: 3,
-        desc: ExerciseDescription('Bigman ting', 'en', 'de', 10, 8, 25, 5),
-        focusPoints: _interFP,
-        records: [ExecutionRecord(exerciseID: 3)]),
+        ID: 3,
+        Desc: ExerciseDescription('Bigman ting', 'en', 'de', 10, 8, 25, 5),
+        FocusPoints: _interFP,
+        Records: [ExecutionRecord(ExerciseID: 3)]),
     Exercise(
-        id: 4,
-        desc: ExerciseDescription('Heavy ting', 'en', 'de', 20, 8, 25, 5),
-        focusPoints: [
+        ID: 4,
+        Desc: ExerciseDescription('Heavy ting', 'en', 'de', 20, 8, 25, 5),
+        FocusPoints: [
           const FocusPoint(
               name: 'Advanced 1',
               difficulty: 'Advanced',
@@ -155,8 +155,8 @@ class Importer {
               contentEN: 'English description of Intermediate 3 FP',
               contentDE: 'German description of Intermediate 3 FP')
         ],
-        records: [
-          ExecutionRecord(exerciseID: 4)
+        Records: [
+          ExecutionRecord(ExerciseID: 4)
         ])
   ];
 

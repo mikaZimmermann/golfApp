@@ -31,7 +31,7 @@ class _DExerciseState extends State<DisplayExercise> {
           return ListTile(
             title: Row(
               children: [
-                Text(widget.exercises[index].getDesc().name),
+                Text(widget.exercises[index].desc.name),
                 //const SizedBox(width: 8),
                 PopupMenuButton<int>(
                   icon: const Icon(Icons.more_vert),
