@@ -3,6 +3,7 @@ import 'Importer.dart';
 import 'TrainingPlanOverview.dart';
 import 'Themes.dart';
 import 'UserPage.dart';
+import 'User.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,11 +34,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  //I add some lists of focus points here, we can import as many as we like from a file later on
+  String _selectedLanguage = 'English';
+  String otpButtonText = 'Open Training Plans';
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedLanguage = User.language;
+    if (_selectedLanguage == 'German') {
+      otpButtonText = 'Offene Trainingspläne';
+    } else {
+      otpButtonText = 'Open Training Plans';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    // have to initialize the exercise list here because it cannot access the focuspoint lists in the scope above
     final Importer importer = Importer();
 
     return Scaffold(
@@ -50,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding:
                 const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: ElevatedButton(
-                child: const Text('Open Trainingplans'),
+                child: Text(otpButtonText),
                 onPressed: () {
                   Navigator.push(
                     context,

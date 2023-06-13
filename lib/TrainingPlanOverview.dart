@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:version1/TrainingPlan.dart';
 import 'FocusPoint.dart';
 import 'Exercise.dart';
+import 'User.dart';
 
 class TrainingPlanOverview extends StatefulWidget {
-  TrainingPlanOverview(
+  const TrainingPlanOverview(
       {super.key,
       required this.trainingPlans,
       required this.beginnerfocusPoints,
@@ -22,18 +23,33 @@ class TrainingPlanOverview extends StatefulWidget {
 }
 
 class _TrainingPlanOverview extends State<TrainingPlanOverview> {
+  String _selectedLanguage = 'English';
+  String title = 'Training Plans Overview';
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedLanguage = User.language;
+    if (_selectedLanguage == 'German') {
+      title = 'Übersicht über die Trainingspläne';
+    } else {
+      title = 'Training Plans Overview';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     //dynamic buttons on the number of training plans are created here
     return Scaffold(
       appBar: AppBar(
-        title: Text('Training Plans Overview'),
+        title: Text(title),
       ),
       body: ListView.builder(
         itemCount: widget.trainingPlans.length,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: ElevatedButton(
               onPressed: () {
                 // Event handler
@@ -91,7 +107,6 @@ class _TrainingPlanOverview extends State<TrainingPlanOverview> {
                             exercises: filteredExercises)),
                   );
                 }
-                print('Button pressed for ${widget.trainingPlans[index]}');
               },
               child: Text(widget.trainingPlans[index]),
             ),
