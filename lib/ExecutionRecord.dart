@@ -1,30 +1,30 @@
 class ExecutionRecord {
-  ExecutionRecord({required this.exerciseID});
-  int exerciseID;
-  late int repetitions = 0;
-  late int shotsMade = 0;
-  late DateTime dateTime = DateTime.now();
-  late String grade = '';
+  ExecutionRecord({required int ExerciseID}) : _exerciseID = ExerciseID;
+  final int _exerciseID;
+  late int _repetitions = 0;
+  late int _shotsMade = 0;
+  late DateTime _dateTime = DateTime.now();
+  late String _grade = '';
 
-  int getExerciseID() => exerciseID;
-  int getRepititions() => repetitions;
-  int getShotsMade() => shotsMade;
-  DateTime getDateTime() => dateTime;
-  String getGrade() => grade;
+  int get exerciseID => _exerciseID;
+  int get repetitions => _repetitions;
+  int get shotsMade => _shotsMade;
+  DateTime get dateTime => _dateTime;
+  String get grade => _grade;
 
-  void setRepitions(int reps) {
-    repetitions = reps;
+  set repetitions(int reps) {
+    _repetitions = reps;
   }
 
-  void setShotsMade(int shots) {
-    shotsMade = shots;
+  set shotsMade(int shots) {
+    _shotsMade = shots;
   }
 
-  void setDateTime(DateTime dt) {
-    dateTime = dt;
+  set dateTime(DateTime dt) {
+    _dateTime = dt;
   }
 
-  void setGrade(String grd) {
-    grade = grd;
+  set grade(String grd) {
+    _grade = grd;
   }
 }

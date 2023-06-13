@@ -78,9 +78,9 @@ class _DExerciseState extends State<DisplayExerciseProgress> {
               final record = records[index];
               Color cardColor;
 
-              if (record.getGrade() == 'Pass') {
+              if (record.grade == 'Pass') {
                 cardColor = const Color.fromARGB(255, 47, 117, 50);
-              } else if (record.getGrade() == 'Fail') {
+              } else if (record.grade == 'Fail') {
                 cardColor = const Color.fromARGB(255, 124, 24, 17);
               } else {
                 cardColor = Colors.transparent;

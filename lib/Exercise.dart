@@ -1,27 +1,35 @@
 //import 'package:flutter/material.dart';
 //import 'package:version1/Shottype.dart';
 
+import 'package:flutter/material.dart';
+
 import 'ExecutionRecord.dart';
 import 'FocusPoint.dart';
 import 'ExerciseDescription.dart';
 
 class Exercise {
   Exercise(
-      {required this.id,
-      required this.desc,
-      required this.focusPoints,
-      required this.records});
-  final int id;
-  final ExerciseDescription desc;
-  final List<FocusPoint> focusPoints;
-  final List<ExecutionRecord> records;
+      {required int ID,
+      required ExerciseDescription Desc,
+      required List<FocusPoint> FocusPoints,
+      required List<ExecutionRecord> Records}) : 
+  _id = ID, _desc = Desc, _focusPoints = FocusPoints, _records = Records;
+  
+  
+  final int _id;
+  final ExerciseDescription _desc;
+  final List<FocusPoint> _focusPoints;
+  final List<ExecutionRecord> _records;
   //final List<Shottype> shottypes;
 
-  int getID() => id;
-  ExerciseDescription getDesc() => desc;
-  List<FocusPoint> getfocusPoints() => focusPoints;
+  int get id => _id;
+  ExerciseDescription get desc => _desc;
+  List<FocusPoint> get focusPoints => _focusPoints;
+  List<ExecutionRecord> get records => _records;
+
+
 
   void addRecord(ExecutionRecord record) {
-    records.add(record);
+    _records.add(record);
   }
 }
