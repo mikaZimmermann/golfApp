@@ -4,6 +4,7 @@ import 'TrainingPlanOverview.dart';
 import 'Themes.dart';
 import 'UserPage.dart';
 import 'User.dart';
+import 'SharedPreferencesUser.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,6 +47,25 @@ class _MyHomePageState extends State<MyHomePage> {
     } else {
       otpButtonText = 'Open Training Plans';
     }
+
+    getUsername().then((username) {
+      getLanguage().then((language) {
+        setState(() {
+          User.setUsername(username);
+          User.setLanguage(language);
+        });
+      });
+    });
+  }
+
+  Future<String> getUsername() async {
+    String? username = await SharedPreferencesUser.getUsername();
+    return username!;
+  }
+
+  Future<String> getLanguage() async {
+    String? language = await SharedPreferencesUser.getLanguage();
+    return language!;
   }
 
   @override

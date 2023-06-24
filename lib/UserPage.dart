@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'User.dart';
+import 'SharedPreferencesUser.dart';
 
 class UserPage extends StatefulWidget {
   const UserPage({super.key});
@@ -20,16 +21,42 @@ class _UserPage extends State<UserPage> {
     super.initState();
     _selectedLanguage = User.language;
     if (_selectedLanguage == 'German') {
-      message = 'Welkommen';
+      message = 'Wilkommen';
     } else {
       message = 'Welcome';
     }
+    getUsername().then((username) {
+      getLanguage().then((language) {
+        setState(() {
+          User.setUsername(username);
+          User.setLanguage(language);
+        });
+      });
+    });
+  }
+
+  Future<String> getUsername() async {
+    String? username = await SharedPreferencesUser.getUsername();
+    return username!;
+  }
+
+  Future<String> getLanguage() async {
+    String? language = await SharedPreferencesUser.getLanguage();
+    return language!;
   }
 
   @override
   void dispose() {
     _usernameController.dispose();
     super.dispose();
+  }
+
+  Future<void> setSharedPrefData(String username, String language) async {
+    await SharedPreferencesUser.saveUserPreferences(username, language);
+  }
+
+  Future<void> setSharedPrefLanguage(String language) async {
+    await SharedPreferencesUser.changeLanguage(language);
   }
 
   @override
@@ -69,6 +96,8 @@ class _UserPage extends State<UserPage> {
                         // Username entered, update User.username
                         setState(() {
                           User.setUsername(_usernameController.text);
+                          setSharedPrefData(
+                              _usernameController.text, 'English');
                         });
                       }
                     },
@@ -107,6 +136,7 @@ class _UserPage extends State<UserPage> {
                         setState(() {
                           _selectedLanguage = newValue!;
                           User.setLanguage(_selectedLanguage);
+                          setSharedPrefLanguage(_selectedLanguage);
                           if (_selectedLanguage == 'German') {
                             message = 'Welkommen';
                           } else {
