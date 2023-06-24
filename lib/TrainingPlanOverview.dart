@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:version1/Importer.dart';
 import 'package:version1/TrainingPlan.dart';
 import 'FocusPoint.dart';
 import 'Exercise.dart';
 import 'User.dart';
+import 'DataModelRecords.dart';
+import 'DataModelGlobal.dart';
+import 'ExecutionRecord.dart';
 
 class TrainingPlanOverview extends StatefulWidget {
   const TrainingPlanOverview(
@@ -25,16 +29,43 @@ class TrainingPlanOverview extends StatefulWidget {
 class _TrainingPlanOverview extends State<TrainingPlanOverview> {
   String _selectedLanguage = 'English';
   String title = 'Training Plans Overview';
+  late List<DataModelRecords> recordsFromDB;
 
   @override
   void initState() {
     super.initState();
     _selectedLanguage = User.language;
+    refreshExerciseList();
     if (_selectedLanguage == 'German') {
       title = 'Übersicht über die Trainingspläne';
     } else {
       title = 'Training Plans Overview';
     }
+  }
+
+  Future<void> refreshExerciseList() async {
+    recordsFromDB = await DataModelGlobal.instance.readAllRecords();
+
+    // Clear existing records in exercises
+    for (var exercise in widget.realExercise) {
+      exercise.records.clear();
+    }
+
+    // Add records to exercises
+    for (var record in recordsFromDB) {
+      // Find the exercise with matching exercise ID
+      var exercise = widget.realExercise.firstWhere(
+        (exercise) => exercise.id == record.exerciseId,
+      );
+      ExecutionRecord progress = ExecutionRecord(ExerciseID: exercise.id);
+      progress.repetitions = record.repetitions;
+      progress.shotsMade = record.shotsMade;
+      progress.dateTime = record.dateTime;
+      progress.grade = record.grade;
+      exercise.records.add(progress);
+    }
+
+    Importer.realExercise = widget.realExercise;
   }
 
   @override

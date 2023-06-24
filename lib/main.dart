@@ -50,8 +50,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final Importer importer = Importer();
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -68,11 +66,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => TrainingPlanOverview(
-                              trainingPlans: importer.trainingPlans,
-                              beginnerfocusPoints: importer.beginnerFP,
-                              interfocusPoints: importer.interFP,
-                              advancedfocusPoints: importer.advFP,
-                              realExercise: importer.realExercises,
+                              trainingPlans: Importer.trainingPlans,
+                              beginnerfocusPoints: Importer.beginnerFP,
+                              interfocusPoints: Importer.interFP,
+                              advancedfocusPoints: Importer.advFP,
+                              realExercise: Importer.realExercises,
                             )),
                   );
                 })),

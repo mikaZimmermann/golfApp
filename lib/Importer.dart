@@ -7,7 +7,7 @@ import 'ExecutionRecord.dart';
 class Importer {
   //static List<User> _users = [];
 
-  final List<FocusPoint> _beginnerFP = [
+  static final List<FocusPoint> _beginnerFP = [
     const FocusPoint(
         name: 'Putting',
         difficulty: 'Beginner',
@@ -26,7 +26,7 @@ class Importer {
   ];
   //there are three different focuspoint lists depending on the difficulty,
   // this is similar to what was a category, we can seperate the two later if required
-  final List<FocusPoint> _interFP = [
+  static final List<FocusPoint> _interFP = [
     const FocusPoint(
         name: 'Intermediate 1',
         difficulty: 'Intermediate',
@@ -94,7 +94,7 @@ class Importer {
         contentDE: 'German description of Intermediate 3 FP')
   ];
 
-  final List<FocusPoint> _advFP = [
+  static final List<FocusPoint> _advFP = [
     const FocusPoint(
         name: 'Advanced 1',
         difficulty: 'Advanced',
@@ -112,14 +112,14 @@ class Importer {
         contentDE: 'German description of Advanced 3 FP')
   ];
 
-  final List<String> _trainingPlans = [
+  static final List<String> _trainingPlans = [
     'Beginner',
     'Intermediate',
     'Advanced'
   ]; //this list is used to create dynamic buttons,
   // we can add more trainingplans or import from a file
 
-  late final List<Exercise> _realExercises = [
+  static List<Exercise> _realExercises = [
     Exercise(
         ID: 1,
         Desc: ExerciseDescription('Short swing', 'en', 'de', 10, 7, 20, 10),
@@ -161,12 +161,15 @@ class Importer {
   ];
 
   //List<User> get users => _users;
-  List<String> get trainingPlans => _trainingPlans;
-  List<FocusPoint> get beginnerFP => _beginnerFP;
-  List<FocusPoint> get interFP => _interFP;
-  List<FocusPoint> get advFP => _advFP;
-  List<Exercise> get realExercises => _realExercises;
+  static List<String> get trainingPlans => _trainingPlans;
+  static List<FocusPoint> get beginnerFP => _beginnerFP;
+  static List<FocusPoint> get interFP => _interFP;
+  static List<FocusPoint> get advFP => _advFP;
+  static List<Exercise> get realExercises => _realExercises;
 
+  static set realExercise(List<Exercise> realEx) {
+    _realExercises = realEx;
+  }
   //static void addUser(User u) {
   //_users.add(u);
   //}
